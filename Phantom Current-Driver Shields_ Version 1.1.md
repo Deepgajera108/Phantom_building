@@ -16,15 +16,9 @@ I used reference photographs available through the GitHub repository and its iss
 
 ### Identifying the Correct Arduino Driver Code
 
-After completing the hardware assembly, I needed Arduino code to operate and test the shields. I initially found the following program:
+After completing the hardware assembly, I needed Arduino code to operate and test the shields. 
 
-https://github.com/robertoostenveld/arduino/blob/main/rp2040_dac7578/rp2040_dac7578.ino
-
-However, this program was written for an RP2040-based controller, and I was unsure whether it was compatible with the Arduino Uno R3 and the version 1.1 current-driver shields.
-
-I therefore opened an issue on the MEG Biosignal Phantom GitHub repository and explained that I was using an Arduino Uno R3 with the current-driver shields. I asked whether the RP2040 program was appropriate or whether a different program was required.
-
-I was informed that the RP2040 code belonged to an earlier controller design and that I should instead use the Arduino Uno/Leonardo implementation:
+I used this code for Arduino Uno/Leonardo implementation:
 
 https://github.com/robertoostenveld/arduino/tree/main/uno_dac7578
 
