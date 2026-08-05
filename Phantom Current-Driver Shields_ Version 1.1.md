@@ -8,8 +8,6 @@ https://github.com/tbardouille/MEG_biosignal_phantom/tree/main/Contributors/Dond
 
 The phantom consists of current-dipole sources and Head Position Indicator (HPI) coils connected through twisted wires to an external current-driver circuit. The driver produces time-varying currents that activate the sources sequentially, allowing the resulting magnetic fields to be measured by the MEG system.
 
-I already had the components needed to assemble the driver shields. However, I had limited previous experience with PCB assembly and soldering. I therefore worked with Jon, who taught me the appropriate soldering techniques and helped me understand how to assemble PCB components reliably without damaging the board or electronic components.
-
 I used reference photographs available through the GitHub repository and its issue discussions to identify the correct component orientation and placement. Following these references, I assembled two version 1.1 Arduino current-driver shields.
 
 **Figure 9.** The two version 1.1 Arduino current-driver shields assembled during this project.
