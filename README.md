@@ -16,6 +16,9 @@ The Phantom assembly has three main components.
 
 The phantom frame and current-dipole PCBs had already been assembled before the driver work described here began. This guide therefore focuses on shield assembly, address configuration, firmware installation, and connection checks.
 
+Phantom Frame: https://github.com/tbardouille/MEG_biosignal_phantom/tree/main/Contributors/DalBiosignalLab/3dmodels
+Current dipole PCBs: 
+
 **Documentation status:** The build notes report successful operation of the assembled driver and completion of the connecting cable. They do not include a complete cable pinout, component values, measured currents, or source-localization results. Items marked **to confirm** must be completed before this guide can serve as a fully reproducible build specification.
 
 ## 1. Design files and materials
