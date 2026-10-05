@@ -9,6 +9,11 @@ meta:
 
 This guide documents the assembly and initial bench testing of the MEG Biosignal Phantom v3 in the Dalhousie Biosignal Laboratory. The build uses an Arduino Uno R3 and three Donders current-driver shields, each containing an eight-channel DAC7578 module. The assembled system provides up to 24 driver channels; the number of connected phantom sources depends on the head and cable configuration.
 
+The Phantom assembly has three main components. 
+#### 1. Building the Driver using custom PCBs to generate sinusoidal current matching the characteristics of brain signals.
+#### 2. Getting the Phantom frame using a 3-D printer and getting custom PCBs that are designed to work with the frame. 
+#### 3. Connection station that connects the driver to the phantom using non-magnetic insulated copper wire. 
+
 The phantom frame and current-dipole PCBs had already been assembled before the driver work described here began. This guide therefore focuses on shield assembly, address configuration, firmware installation, and connection checks.
 
 **Documentation status:** The build notes report successful operation of the assembled driver and completion of the connecting cable. They do not include a complete cable pinout, component values, measured currents, or source-localization results. Items marked **to confirm** must be completed before this guide can serve as a fully reproducible build specification.
