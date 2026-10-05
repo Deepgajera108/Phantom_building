@@ -14,14 +14,15 @@ The Phantom assembly has three main components.
 #### 2. Getting the Phantom frame using a 3-D printer and getting custom PCBs that are designed to work with the frame. 
 #### 3. Connection station that connects the driver to the phantom using non-magnetic insulated copper wire. 
 
-The phantom frame and current-dipole PCBs had already been assembled before the driver work described here began. This guide therefore focuses on shield assembly, address configuration, firmware installation, and connection checks.
+## 1. Design files and materials
 
+The phantom frame and current-dipole PCBs can be build and ordered using the links below.
 Phantom Frame: https://github.com/tbardouille/MEG_biosignal_phantom/tree/main/Contributors/DalBiosignalLab/3dmodels
+
+
 Current dipole PCBs: 
 
-**Documentation status:** The build notes report successful operation of the assembled driver and completion of the connecting cable. They do not include a complete cable pinout, component values, measured currents, or source-localization results. Items marked **to confirm** must be completed before this guide can serve as a fully reproducible build specification.
-
-## 1. Design files and materials
+<img width="296" height="510" alt="Screenshot 2026-09-29 at 1 12 35 PM" src="https://github.com/user-attachments/assets/2870f3c3-57f5-4823-8ed7-2152dd06af30" />
 
 Use the [Donders contribution directory](https://github.com/tbardouille/MEG_biosignal_phantom/tree/main/Contributors/Donders) for the current-driver design and parts information. Record the exact design revision or Git commit used for each build.
 
@@ -37,7 +38,8 @@ Use the [Donders contribution directory](https://github.com/tbardouille/MEG_bios
 | Soldering equipment and inspection tools | As required | Include a multimeter for continuity checks |
 | Oscilloscope and suitable test load | As required | For checking output waveforms and current |
 
-Do not substitute the component list from the previous relay-based phantom driver. That manual describes an MCP4725 DAC and an eight-channel relay module, whereas this build uses DAC7578 shields.
+Do not substitute the component list from the previous relay-based phantom driver. This build uses DAC7578 shields.
+<img width="914" height="514" alt="assembled-shields" src="https://github.com/user-attachments/assets/e58be182-5a72-474a-aeb9-49e6dfb0983a" />
 
 ## 2. Check the PCB revision before assembly
 
