@@ -41,18 +41,7 @@ Use the [Donders contribution directory](https://github.com/tbardouille/MEG_bios
 Do not substitute the component list from the previous relay-based phantom driver. This build uses DAC7578 shields.
 <img width="914" height="514" alt="assembled-shields" src="https://github.com/user-attachments/assets/e58be182-5a72-474a-aeb9-49e6dfb0983a" />
 
-## 2. Check the PCB revision before assembly
-
-1. Inspect every driver PCB and record its revision.
-2. Use **v1.1** for the assembly described here.
-3. Check the DAC7578 module orientation against the v1.1 design before soldering.
-
-**Important v1.0 warning:** The correspondence preserved in the build notes identifies an orientation error in the initial v1.0 driver PCB design. Installing the DAC7578 module in the normal orientation on that revision can destroy it when power is applied. The correspondence describes an inverted-module workaround, but this guide does not provide instructions for it. If the board is marked v1.0, stop and consult the documented correction in the [Donders README](https://github.com/tbardouille/MEG_biosignal_phantom/blob/main/Contributors/Donders/README.md).
-
-![Two assembled driver shields from the lab build](images/assembled-shields.jpeg)
-
-*Two shields assembled during this build. Confirm module orientation from the design files, rather than from a photograph alone.*
-
+Once you get all the components of the driver, perform a dry fit and make sure that everything is assembled similar to the shield above, However please follow the next steps before soldering.  
 ## 3. Configure the DAC addresses before mounting the modules
 
 Each shield shares the Arduino's I²C bus. Each DAC7578 must have a different address so the firmware can address the shields independently.
@@ -71,13 +60,6 @@ The [Adafruit address-jumper instructions](https://learn.adafruit.com/adafruit-d
 2. Label each shield with a physical board identifier and its address.
 3. Make the required solder bridge on each module. Do not bridge the centre pad to both outer pads.
 4. Inspect the jumper for unintended bridges.
-5. Record the actual assignments below. These entries are deliberately blank because the notes do not specify which physical board received each address.
-
-| Physical board | Recorded I²C address | Position in stack |
-| --- | --- | --- |
-| Board 1 | **To confirm** | **To confirm** |
-| Board 2 | **To confirm** | **To confirm** |
-| Board 3 | **To confirm** | Top board in the 22 September build entry |
 
 **Lesson from this build:** The first two shields initially used the same default address. The firmware reported them as one device, and the outputs showed the same current and frequency response. The address jumper was difficult to access after assembly, requiring rework. Configure unique addresses first to avoid this problem.
 
@@ -109,7 +91,6 @@ The `rp2040_dac7578` sketch belongs to the earlier RP2040-based controller and w
 7. Open the Serial Monitor using the baud rate defined in the sketch.
 8. Record the firmware commit, IDE version, library versions, and serial startup output.
 
-Do not assume a waveform, output amplitude, baud rate, or command syntax from the older driver manual. Use the selected firmware revision to determine these settings.
 
 ## 6. Test the shields individually and as a stack
 
@@ -126,11 +107,11 @@ The following sequence is a recommended verification procedure. The source notes
 
 Where current is inferred from a voltage measurement across a known resistor, use `I = V / R`. Record whether the reported voltage and current are peak, peak-to-peak, or RMS values. Do not infer phantom current solely from the commanded DAC value.
 
-![Oscilloscope connected during driver bench testing](images/bench-test.jpeg)
+<img width="725" height="408" alt="bench-test" src="https://github.com/user-attachments/assets/c6062028-b803-4c38-88c8-e3cc3c7f2dcc" />
 
 *Bench testing shown in the build notes. This image documents the setup; it does not establish calibrated amplitude or frequency accuracy.*
 
-![Three-shield stack photographed during the build](images/three-shield-stack.jpeg)
+<img width="661" height="1175" alt="three-shield-stack" src="https://github.com/user-attachments/assets/ba41f36a-e894-4845-969e-73a3c63d47be" />
 
 *The build entry dated 22 September 2026 identifies the top shield as Board 3 and refers to testing its eighth channel.*
 
@@ -140,21 +121,8 @@ The notes describe a connecting wire assembly and identify grey as channel 1 and
 
 An eight-channel DAC needs documented output and return connections. The phrase “8 pin wire” in the notes is insufficient to define the full connector pinout. Do not assume that colour alone identifies polarity, ground, or a return connection.
 
-1. Identify each driver output and its required return from the v1.1 schematic.
-2. Identify every connector pin and phantom-side terminal.
-3. With all power disconnected, trace each conductor using a continuity meter.
-4. Check for shorts between adjacent conductors and unintended connections between sources.
-5. Label both ends and add strain relief appropriate to the connector.
-6. Complete the connection record before attaching the phantom.
+<img width="594" height="406" alt="cable-connected" src="https://github.com/user-attachments/assets/90e5f784-f2c8-4737-ba9d-95e033fa03a2" />
 
-| Shield address | Local channel label | DAC output label | Connector pin | Wire colour | Phantom source | Return connection |
-| --- | --- | --- | --- | --- | --- | --- |
-| **To confirm** | 1 in the notes | **To confirm** | **To confirm** | Grey in the notes | **To confirm** | **To confirm** |
-| **To confirm** | 8 in the notes | **To confirm** | **To confirm** | Brown in the notes | **To confirm** | **To confirm** |
-
-Add a row for every connected output. The Adafruit breakout labels outputs 0–7, whereas the lab notes use channels 1–8. Verify the correspondence rather than assuming the firmware uses the same numbering.
-
-![Driver stack with the connecting cable attached](images/cable-connected.jpeg)
 
 *Cable connection photographed during the build. Connector orientation and pin assignments still require a written pinout.*
 
@@ -165,9 +133,6 @@ Add a row for every connected output. The Adafruit breakout labels outputs 0–7
 3. Connect the phantom and perform a bench check of each connected source using suitable electrical measurements.
 4. Confirm the startup, idle, and shutdown output behaviour of the selected firmware before placing the phantom in the MEG setup.
 5. Keep the driver electronics outside the magnetic shield. The previous phantom manual specifies placing the junction at least 1 m from the sensor array; use this as inherited setup guidance and confirm the cable routing and separation for the v3 experiment.
-6. Record source positions and orientations from the actual v3 head design before localization tests.
-
-Do not reuse the previous manual's source geometry, resistor values, nominal 17 nAm dipole strength, or 5 Hz pulse protocol without verifying their applicability to v3. Electrical operation alone does not demonstrate source-localization accuracy.
 
 ## 9. Troubleshooting
 
